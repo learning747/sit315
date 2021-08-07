@@ -1,0 +1,31 @@
+// C++ code
+//
+int led = 13;
+int sensor = 2;
+void setup()
+{
+  attachInterrupt(digitalPinToInterrupt(sensor), kar, CHANGE);
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  pinMode(2,INPUT);
+}
+
+void loop()
+  
+{
+  
+}
+
+void kar()
+{
+  if (digitalRead(sensor) == HIGH)
+  {
+    digitalWrite(led, HIGH);
+    Serial.println("motion");
+  }
+  else
+  {
+    digitalWrite(led, LOW);
+    Serial.println("no motion");
+  }
+}
